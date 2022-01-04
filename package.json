@@ -1,0 +1,17 @@
+{
+  "name": "pelis-api",
+  "version": "1.0.0",
+  "description": "API Pelis MYSQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Artemio",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^7.0.0-alpha.4"
+  }
+}
