@@ -6,6 +6,7 @@ const { Op } = require('sequelize');
 
 router.get('/', async (req, res)=>{
     //res.send('Entra correctamente en /characters.');
+    console.log(req.userId);
     const characters = await Character.findAll({
         attributes: ['image', 'name']
     });
