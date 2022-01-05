@@ -3,6 +3,9 @@ const bcrypt = require('bcryptjs');
 const { User } = require('../../db');
 const { check, validationResult } = require('express-validator');
 
+
+//Creacion de Usuarios. Comprobacion de los datos ingresados.
+
 router.post('/register',[
     check('username', 'Name required').not().isEmpty(),
     check('email', 'Email must be ok').isEmail(),
@@ -19,6 +22,8 @@ router.post('/register',[
     res.json(user);
 });
 
+//Login de Usuarios y comprobación de credenciales
+
 router.post('/login', async (req, res)=>{
     const user = await User.findOne({ where: { email: req.body.email } });
     if (user) {
@@ -32,5 +37,11 @@ router.post('/login', async (req, res)=>{
         res.json({ error: 'Wrong username/password.'});
     }
 });
+
+//Metodo para generar un TOKEN de autorización 
+
+const createToken = (user)=>{
+
+}
 
 module.exports = router;
