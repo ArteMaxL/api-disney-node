@@ -5,6 +5,8 @@ const apiRouter = require('./routes/api');
 
 const app = express();
 
+const port = parseInt(process.env.PORT || 3000);
+
 require('./db');
 
 app.use(bodyParser.json());
@@ -13,10 +15,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api', apiRouter);
 
 app.get('/', (req, res) =>{
-    res.send('Todo OK');
+    res.send('Welcome to Disney API');
 });
 
 
-app.listen(3000, ()=>{
-    console.log('Servidor Iniciado');
+app.listen(port, ()=>{
+    console.log(`Server started on port: ${port}`);
 });

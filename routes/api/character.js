@@ -1,6 +1,8 @@
 const router = require('express').Router();
 
-const { Character } = require('../../db');
+
+const { Character, MovieOrSerie } = require('../../db');
+const { Op } = require('sequelize');
 
 router.get('/', async (req, res)=>{
     //res.send('Entra correctamente en /characters.');
@@ -19,14 +21,14 @@ router.put('/:id', async (req, res) =>{
     await Character.update(req.body, {
         where: { id: req.params.id }
     });
-    res.json({ success: 'Personaje actualizado.'});
+    res.json({ success: 'Character updated.'});
 });
 
 router.delete('/:id', async (req, res)=>{
     await Character.destroy({
         where: { id: req.params.id }
     });
-    res.json({ success: 'Personaje eliminado.'})
+    res.json({ success: 'Character deleted.'})
 });
 
 module.exports = router;
