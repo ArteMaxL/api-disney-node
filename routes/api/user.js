@@ -8,15 +8,15 @@ const jwt = require('jwt-simple');
 
 //Creacion de Usuarios. Comprobacion de los datos ingresados.
 
-router.post('/register',[
+router.post('/register', [
     check('username', 'Name required').not().isEmpty(),
     check('email', 'Email must be ok').isEmail(),
     check('password', 'Password required').not().isEmpty()
-] ,async (req, res) =>{
-    
+], async (req, res) => {
+
     const errors = validationResult(req);
-    if(!errors.isEmpty()){
-        return res.status(422).json({ errors: errors.array()})
+    if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() })
     };
 
     req.body.password = bcrypt.hashSync(req.body.password, 10);
@@ -26,23 +26,23 @@ router.post('/register',[
 
 //Login de Usuarios y comprobación de credenciales
 
-router.post('/login', async (req, res)=>{
+router.post('/login', async (req, res) => {
     const user = await User.findOne({ where: { email: req.body.email } });
     if (user) {
         const equals = bcrypt.compareSync(req.body.password, user.password);
-        if (equals){
+        if (equals) {
             res.json({ success: createToken(user) });
         } else {
-            res.json({ error: 'Wrong username/password.'}); 
+            res.json({ error: 'Wrong username/password.' });
         }
     } else {
-        res.json({ error: 'Wrong username/password.'});
+        res.json({ error: 'Wrong username/password.' });
     }
 });
 
 //Metodo para generar un TOKEN de autorización 
 
-const createToken = (user)=>{
+const createToken = (user) => {
     const payload = {
         userId: user.id,
         createdAt: moment().unix(),

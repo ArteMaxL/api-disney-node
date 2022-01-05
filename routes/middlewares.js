@@ -15,13 +15,13 @@ const checkToken = (req, res, next) => {
     try {
         payload = jwt.decode(userToken, 'keyword');
     } catch (error) {
-        return res.json({ error: 'Wrong TOKEN'});
+        return res.json({ error: 'Wrong TOKEN' });
     }
 
     //Validez por tiempo de Token
 
-    if (payload.expiredAt < moment().unix()){
-        return res.json({ error: 'Token was expirated'});
+    if (payload.expiredAt < moment().unix()) {
+        return res.json({ error: 'Token was expirated' });
     }
 
     //

@@ -13,11 +13,11 @@ module.exports = (sequelize, dataTypes) => {
         },
         title: {
             type: dataTypes.STRING(100),
-            allowNull: true
+            allowNull: false
         },
         date: {
             type: dataTypes.DATEONLY(),
-            allowNull: true
+            allowNull: false
         },
         rate: {
             type: dataTypes.INTEGER(11),
