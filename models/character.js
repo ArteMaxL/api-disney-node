@@ -4,8 +4,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER(11),
             allowNull: false,
             autoIncrement: true,
-            primaryKey: true
-        },
+            primaryKey: true,
+            initialAutoIncrement: 1
+        },       
         image: {
             type: dataTypes.STRING(100),
             allowNull: true

@@ -4,7 +4,8 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER(11),
             allowNull: false,
             autoIncrement: true,
-            primaryKey: true
+            primaryKey: true,
+            initialAutoIncrement: 1
         },
         image: {
             type: dataTypes.STRING(100),
@@ -18,11 +19,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.DATEONLY(),
             allowNull: true
         },
-        rate: {
-            type: dataTypes.INTEGER(11),
-            allowNull: true
-        },
-        associedChar: {
+        associedMovies: {
             type: dataTypes.STRING(100),
             allowNull: true
         }

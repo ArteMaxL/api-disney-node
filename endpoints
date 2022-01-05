@@ -1,0 +1,24 @@
+
+AUTORIZACION DE USUARIOS
+/auth/login
+/auth/register
+
+LISTADO Y CRUD DE PERSONAJES (Imagen, Nombre)
+GET /characters
+POST /characters
+PUT /characters/id
+DELETE /characters/id
+
+
+BUSQUEDA DE PERSONAJES 
+GET /characters?name=nombre
+GET /characters?age=edad
+GET /characters?movies=idMovie
+
+LISTADO DE PELICULAS
+GET /movies
+
+BUSQUEDA DE PELICULAS O SERIES
+GET /movies?name=nombre
+GET /movies?genre=idGenero
+GET /movies?order=ASC | DESC
