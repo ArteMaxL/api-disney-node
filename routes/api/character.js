@@ -32,4 +32,15 @@ router.delete('/:id', async (req, res) => {
     res.json({ success: 'Character deleted.' })
 });
 
+/* router.get('/name=', async (req, res) => {
+   const name = await Character.findAll({
+        where: { name: [req.query.name] }
+        
+    })
+    console.log(req.query.name);
+    res.json(name);
+
+}); */
+
+
 module.exports = router;
