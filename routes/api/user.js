@@ -4,6 +4,13 @@ const { User } = require('../../db');
 const { check, validationResult } = require('express-validator');
 const moment = require('moment');
 const jwt = require('jwt-simple');
+const sendgrid = require('@sendgrid/mail');
+const { response } = require('express');
+
+//Config SendGrid
+
+const sendgridApiKey = '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';
+sendgrid.setApiKey(sendgridApiKey)
 
 
 //Creacion de Usuarios. Comprobacion de los datos ingresados.
@@ -22,6 +29,25 @@ router.post('/register', [
     req.body.password = bcrypt.hashSync(req.body.password, 10);
     const user = await User.create(req.body);
     res.json(user);
+
+//Envío de email de bienvenida con SendGrid al registrarse
+    const email = req.body.email;
+    const message = {
+        to: email,
+        from: {
+            name: 'API DISNEY ALKEMY!',
+            email: 'artemiolucero@gmail.com'
+        },
+        subject: "Welcome to my Disney Api!",
+        text: "Welcome to my Disney Api!",
+        html: "<h1>Welcome to my Disney Api!</h1>"
+    };
+
+    sendgrid.send(message)
+        .then((response) => console.log('Email sent...'))
+        .catch((error) => console.log(error.message));
+    
+
 });
 
 //Login de Usuarios y comprobación de credenciales
