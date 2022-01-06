@@ -9,7 +9,7 @@ const { response } = require('express');
 
 //Config SendGrid
 
-const sendgridApiKey = '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';
+const sendgridApiKey = 'SG.vMCPjJ3WSqSj46D3.X9FK-gPTJ8dj6ArV8FQCoWGpbrdGtLvaVA';
 sendgrid.setApiKey(sendgridApiKey)
 
 
@@ -36,7 +36,7 @@ router.post('/register', [
         to: email,
         from: {
             name: 'API DISNEY ALKEMY!',
-            email: 'artemiolucero@gmail.com'
+            email: 'email@gmail.com'
         },
         subject: "Welcome to my Disney Api!",
         text: "Welcome to my Disney Api!",
