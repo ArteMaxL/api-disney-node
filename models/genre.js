@@ -13,7 +13,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         title: {
             type: dataTypes.STRING(45),
-            allowNull: true
+            allowNull: false
         },
         date: {
             type: dataTypes.DATEONLY(),
@@ -21,7 +21,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         associedMovies: {
             type: dataTypes.STRING(100),
-            allowNull: true
+            allowNull: false
         }
     })
 };

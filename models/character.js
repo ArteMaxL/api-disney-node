@@ -13,7 +13,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         name: {
             type: dataTypes.STRING(45),
-            allowNull: true
+            allowNull: false
         },
         age: {
             type: dataTypes.STRING(45),
@@ -29,7 +29,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         movieORserie: {
             type: dataTypes.STRING(45),
-            allowNull: true
+            allowNull: false
         }
     })
 };
