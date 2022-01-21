@@ -18,7 +18,6 @@ app.get('/', (req, res) =>{
     res.send('Welcome to Disney API');
 });
 
-
 app.listen(port, ()=>{
     console.log(`Server started on port: ${port}`);
 });

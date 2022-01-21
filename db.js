@@ -5,10 +5,11 @@ const GenreModel = require('./models/genre');
 const MovieModel = require('./models/movieSerie');
 const UserModel = require('./models/user');
 
-const sequelize = new Sequelize('heroku_b4fa3f59072f20b', 'b6ec5b96d879a4', 'a64262c7', {
-    host: 'us-cdbr-east-05.cleardb.net',
-    dialect: 'mysql'
-});
+const sequelize = new Sequelize('disney_api', 'postgres', 'admin', {
+    host: 'localhost',
+    dialect: 'postgres'
+  });
+  
 
 const Character = CharModel(sequelize, Sequelize);
 const Genre = GenreModel(sequelize, Sequelize);

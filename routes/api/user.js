@@ -9,7 +9,7 @@ const { response } = require('express');
 
 //Config SendGrid
 
-const sendgridApiKey = 'SG.vMCPjJ3WSqSj46D3.X9FK-gPTJ8dj6ArV8FQCoWGpbrdGtLvaVA';
+const sendgridApiKey = 'zzzzzzzz';
 sendgrid.setApiKey(sendgridApiKey)
 
 
